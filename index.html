@@ -9,122 +9,96 @@
 </head>
 <body>
 
-    <nav class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 20px 20px;">
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <img src="logo.png" alt="Wuhuahuhu Logo" style="height: 40px; width: auto;">
-        </div>
-        <div style="font-size: 0.85em; color: #888; letter-spacing: 0.5px;">
-            100% STUDENT-OPERATED
+    <nav class="container nav-bar">
+        <img src="logo.png" alt="Wuhuahuhu Logo" class="logo">
+        <div class="lang-switcher">
+            <button onclick="changeLang('en')" class="lang-btn active">EN</button>
+            <button onclick="changeLang('ua')" class="lang-btn">UA</button>
+            <button onclick="changeLang('cn')" class="lang-btn">CN</button>
         </div>
     </nav>
 
-    <header class="container">
-        <h1>We provide not just generators, <br><span style="color: #FFDD00;">but the return of light.</span></h1>
-        <p>Ми не просто продаємо генератори — ми повертаємо світло.</p>
-        <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Find Your Light Today</button>
+    <header class="container hero-section">
+        <h1 id="hero-title" data-en="We provide not just generators, but the return of light." 
+            data-ua="Ми надаємо не просто генератори, а повернення світла." 
+            data-cn="我们提供的不仅是发电机，更是光明的回归。">
+            We provide not just generators, but the return of light.
+        </h1>
+        <p id="hero-desc" data-en="Reliable backup for reconstruction and warmth." 
+           data-ua="Надійне джерело для відновлення та тепла." 
+           data-cn="为重建与温暖提供可靠的电力保障。">
+           Reliable backup for reconstruction and warmth.
+        </p>
+        <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" 
+                id="hero-btn" data-en="Find Your Light Today" data-ua="Знайдіть своє світло сьогодні" data-cn="开启光明之旅">
+            Find Your Light Today
+        </button>
         
         <div style="margin-top: 50px; cursor: pointer;" onclick="lightUp()" id="light-trigger">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5" style="transition: all 0.5s;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5">
                 <path d="M9 21h6M12 3a7 7 0 0 0-7 7c0 2.5 1 4 3 6v2h8v-2c2-2 3-3.5 3-6a7 7 0 0 0-7-7z"></path>
             </svg>
-            <p id="light-count" style="font-size: 0.85em; color: #aaa; margin-top: 10px;">Click to light a hope</p>
+            <p id="light-count" style="font-size: 0.85em; color: #aaa; margin-top: 10px;" 
+               data-en="Click to light a hope" data-ua="Натисніть, щоб засвітити надію" data-cn="点击点亮希望">
+               Click to light a hope
+            </p>
         </div>
     </header>
 
-    <section id="the-spark" style="background: #1a1a1a; color: #eee; padding: 120px 20px; text-align: center;">
+    <section id="the-spark" class="dark-section">
         <div class="container" style="max-width: 750px;">
-            <h2 style="font-weight: 300; color: #FFDD00; margin-bottom: 40px; letter-spacing: 2px;">THE SPARK</h2>
-            <div style="text-align: left; line-height: 2; font-weight: 300; font-size: 1.1em; color: #ccc;">
+            <h2 id="story-title" data-en="THE SPARK" data-ua="ІСКРА" data-cn="火花">THE SPARK</h2>
+            <div id="story-content" class="story-text" 
+                 data-en='<p>"Someone needs the world, while I need a corner."</p><p>It started with a late-night chat. Martha, my pen pal in Kyiv, sat by candlelight. "We need more than supplies," she said. "We need the certainty of light."</p>' 
+                 data-ua='<p>"Комусь потрібен світ, а мені — затишний куточок."</p><p>Все почалося з нічної розмови. Марта, моя подруга з Києва, сиділа при свічках. "Нам потрібно більше, ніж просто запаси," сказала вона. "Нам потрібна впевненість у світлі."</p>' 
+                 data-cn='<p>“有人需要世界，而我只需要一个角落。”</p><p>这一切始于一次深夜聊天。我在基辅的笔友玛莎坐在烛光下。“我们需要的不仅仅是物资，”她说，“我们需要光明的确定性。”</p>'>
                 <p>"Someone needs the world, while I need a corner."</p>
                 <p>It started with a late-night chat. Martha, my pen pal in Kyiv, sat by candlelight. "We need more than supplies," she said. "We need the certainty of light."</p>
-                <p>From a quiet corner in China, I curate every piece of equipment. SOHO is not an escape for me; it is a settlement in clear solitude. Here, I ensure that every watt of power I send brings warmth to a family like Martha's.</p>
-            </div>
-            <div style="margin-top: 50px;">
-                <button class="btn-primary" style="background: transparent; border: 1px solid #FFDD00; color: #FFDD00;" onclick="openInquiry('Shared Story')">Write to me, tell me your story</button>
             </div>
         </div>
     </section>
 
-    <section id="products" class="container" style="padding: 100px 20px;">
-        <h2 style="text-align: center; margin-bottom: 60px; font-weight: 600;">Selected for Reconstruction</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+    <section id="products" class="container product-grid-section">
+        <h2 id="product-title" data-en="Selected for Reconstruction" data-ua="Відібрано для відновлення" data-cn="为重建精选">Selected for Reconstruction</h2>
+        <div class="product-grid">
             <div class="product-card">
-                <img src="power.jpg" class="product-img" alt="Power Station" onerror="this.src='https://images.unsplash.com/photo-1620714223084-874165487a31?auto=format&fit=crop&w=800&q=80'">
-                <div style="padding: 30px;">
-                    <h3 style="color: #0057B7; margin-top: 0;">Powering Lives</h3>
-                    <p>3500Wh / 5000W Mobile Power Station. Reliable backup for home appliances.</p>
-                    <button class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="openInquiry('3500Wh Power Station')">Start a Conversation</button>
+                <img src="power.jpg" class="product-img" alt="Power Station">
+                <div class="product-info">
+                    <h3 data-en="Powering Lives" data-ua="Живлення життя" data-cn="点亮生活">Powering Lives</h3>
+                    <p data-en="3500Wh Mobile Power Station." data-ua="Мобільна електростанція 3500 Вт·год." data-cn="3500Wh 移动储能电源">3500Wh Mobile Power Station.</p>
+                    <button class="btn-primary" onclick="openInquiry('Power Station')" data-en="Inquiry" data-ua="Запит" data-cn="立即询价">Inquiry</button>
                 </div>
             </div>
-            <div class="product-card">
-                <img src="cotton.jpg" class="product-img" alt="Insulation" onerror="this.src='https://images.unsplash.com/photo-1629196914375-f7e48f477b6d?auto=format&fit=crop&w=800&q=80'">
-                <div style="padding: 30px;">
-                    <h3 style="color: #0057B7; margin-top: 0;">Building Warmth</h3>
-                    <p>Multi-layer thermal insulation. Effectively reduces heating costs.</p>
-                    <button class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="openInquiry('Insulation Cotton')">Start a Conversation</button>
-                </div>
             </div>
-            <div class="product-card">
-                <img src="light.jpg" class="product-img" alt="Solar Light" onerror="this.src='https://images.unsplash.com/photo-1542407515-58582d1c686e?auto=format&fit=crop&w=800&q=80'">
-                <div style="padding: 30px;">
-                    <h3 style="color: #0057B7; margin-top: 0;">Daily Comfort</h3>
-                    <p>Smart Solar Sensor Light. Zero electricity cost, IP65 waterproof.</p>
-                    <button class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="openInquiry('Solar Sensor Light')">Start a Conversation</button>
-                </div>
-            </div>
-        </div>
     </section>
 
-    <section class="container" style="padding: 100px 20px; text-align: center; background: #fff; border-radius: 24px; margin-bottom: 80px; box-shadow: 0 10px 40px rgba(0,0,0,0.04);">
-        <h4 style="margin-bottom: 50px; color: #888; font-size: 0.9em; letter-spacing: 3px; font-weight: 400;">SILK ROAD EXPRESS (CHINA-EUROPE)</h4>
+    <section class="container train-section">
+        <h4 data-en="SILK ROAD EXPRESS" data-ua="ШОВКОВИЙ ШЛЯХ ЕКСПРЕС" data-cn="中欧班列">SILK ROAD EXPRESS</h4>
         <div class="train-track-container">
             <div class="track-line"></div>
-            
-            <div class="train-engine">
-                <div class="train-body"></div>
-                <div class="train-light"></div>
-            </div>
-
+            <div class="train-engine"><div class="train-body"></div><div class="train-light"></div></div>
             <div class="node node-cn"><span class="node-label">CHINA</span><div class="node-icon">🏮</div></div>
-            <div class="node node-kz"><span class="node-label">KAZAKHSTAN</span><div class="node-icon">🌍</div></div>
-            <div class="node node-pl"><span class="node-label">POLAND</span><div class="node-icon">🛂</div></div>
             <div class="node node-ua"><span class="node-label">UKRAINE</span><div class="node-icon">🌻</div></div>
         </div>
-        <p style="font-size: 0.85em; color: #aaa; margin-top: 40px; font-style: italic;">Fast, stable, and unstoppable toward the future.</p>
     </section>
 
     <section id="contact" class="glass-form">
-        <h3 style="text-align: center; margin-bottom: 10px; font-size: 1.8em;">Start a Conversation</h3>
-        <p style="text-align: center; font-size: 0.9em; margin-bottom: 30px; color: #666;">Every message reaches my quiet corner in China.</p>
-        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
-            <a href="https://wa.me/8619991689868" target="_blank" class="contact-pill">WhatsApp</a>
-            <a href="https://t.me/+8619991689868" target="_blank" class="contact-pill">Telegram</a>
-            <a href="mailto:zhexi0214@gmail.com" class="contact-pill">Email</a>
-        </div>
+        <h3 id="form-title" data-en="Start a Conversation" data-ua="Почати розмову" data-cn="开始对话">Start a Conversation</h3>
         <form id="inquiryForm" onsubmit="submitForm(event)">
-            <div style="margin-bottom: 15px;"><input type="text" id="name" placeholder="Your Name" required class="input-field"></div>
-            <div style="margin-bottom: 15px;"><input type="text" id="contactInfo" placeholder="WhatsApp / Email" required class="input-field"></div>
-            <div style="margin-bottom: 15px;"><input type="text" id="productInterest" value="General Inquiry" class="input-field" readonly style="background: #f0f0f0;"></div>
-            <div style="margin-bottom: 25px;"><textarea id="message" placeholder="Tell me about your needs..." rows="4" class="input-field"></textarea></div>
-            <button type="submit" class="btn-primary" style="width: 100%; height: 60px;">SEND TO ZHEXI</button>
+            <input type="text" id="name" placeholder="Your Name" required class="input-field">
+            <input type="text" id="contactInfo" placeholder="WhatsApp / Email" required class="input-field">
+            <textarea id="message" placeholder="Your needs..." rows="4" class="input-field"></textarea>
+            <button type="submit" class="btn-primary" style="width: 100%;" id="submit-btn" 
+                    data-en="SEND TO ZHEXI" data-ua="НАДІСЛАТИ ЖЕКСП" data-cn="发送给哲熙">SEND TO ZHEXI</button>
         </form>
     </section>
 
-    <footer style="padding: 80px 20px; text-align: center; background: var(--bg-warm-gray);">
+    <footer class="container">
         <div class="clock-container">
-            <div><span style="font-size: 0.7em; color: #999; display: block;">BEIJING</span><span id="clock-cn" style="font-weight: 600; font-size: 1.2em;">--:--</span></div>
-            <div><span style="font-size: 0.7em; color: #999; display: block;">KYIV</span><span id="clock-ua" style="font-weight: 600; font-size: 1.2em;">--:--</span><span id="resting-icon" style="display:none; margin-left:5px;">🌙</span></div>
-        </div>
-        <div style="font-size: 0.85em; color: #aaa; margin-top: 40px;">
-            <p>© 2026 WUHUAHUHU. Crafted with care from a quiet corner in China.</p>
-            <p style="letter-spacing: 4px; margin-top: 10px;">PEACE</p>
+            <div><span class="node-label">BEIJING</span><span id="clock-cn">--:--</span></div>
+            <div><span class="node-label">KYIV</span><span id="clock-ua">--:--</span><span id="resting-icon" style="display:none;">🌙</span></div>
         </div>
     </footer>
-
-    <div id="exit-intent">
-        <h3>May the light stay with you.</h3>
-        <p>If you need anything for the rebuilding, I’m always here.</p>
-    </div>
 
     <script src="script.js"></script>
 </body>
