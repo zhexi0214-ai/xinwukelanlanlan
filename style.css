@@ -28,32 +28,46 @@ header.container h1 { font-size: 3.5rem !important; text-shadow: 0 4px 15px rgba
 }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 87, 183, 0.3); }
 
-/* 班列动画核心 */
-.train-track-container { position: relative; height: 100px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; margin: 20px 0; }
-.track-line { position: absolute; left: 60px; right: 60px; height: 2px; background: repeating-linear-gradient(to right, #eee 0, #eee 10px, transparent 10px, transparent 20px); z-index: 1; }
-.train-dot { 
-    position: absolute; width: 14px; height: 14px; background: var(--brand-blue); border: 3px solid #fff; 
-    border-radius: 50%; box-shadow: 0 0 15px var(--brand-blue); z-index: 5;
-    animation: trainMove 12s infinite linear; 
-}
-@keyframes trainMove {
-    0% { left: 50px; opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { left: calc(100% - 65px); opacity: 0; }
-}
-.node { position: relative; z-index: 2; background: #fff; padding: 5px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; }
-.node-icon { font-size: 1.4rem; margin-top: 5px; }
-.node-label { font-size: 0.65rem; font-weight: bold; color: #ccc; letter-spacing: 1px; position: absolute; top: -25px; white-space: nowrap; }
+/* --- 升级版：中欧班列火车动画 --- */
+.train-track-container { position: relative; height: 120px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; margin: 20px 0; }
+.track-line { position: absolute; left: 60px; right: 60px; height: 1px; background: #eee; z-index: 1; }
 
+.train-engine {
+    position: absolute; width: 40px; height: 18px; z-index: 5;
+    animation: trainMove 15s infinite linear;
+}
+
+/* 火车头主体 */
+.train-body {
+    width: 30px; height: 16px; background: var(--brand-blue); border-radius: 4px 8px 2px 2px;
+    position: relative; box-shadow: 0 4px 10px rgba(0, 87, 183, 0.3);
+}
+
+/* 火车大灯 */
+.train-light {
+    position: absolute; right: -2px; top: 4px; width: 6px; height: 6px; 
+    background: var(--brand-yellow); border-radius: 50%;
+    box-shadow: 10px 0 20px var(--brand-yellow), 5px 0 10px white; /* 模拟灯光射出 */
+}
+
+@keyframes trainMove {
+    0% { left: 40px; opacity: 0; transform: translateX(-20px); }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { left: calc(100% - 80px); opacity: 0; transform: translateX(20px); }
+}
+
+.node { position: relative; z-index: 2; background: #fff; padding: 10px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.node-icon { font-size: 1.4rem; margin-top: 5px; }
+.node-label { font-size: 0.65rem; font-weight: bold; color: #ccc; letter-spacing: 1px; position: absolute; top: -30px; white-space: nowrap; }
+
+/* 其他样式保持一致 */
 .product-card { background: white; border-radius: 12px; overflow: hidden; transition: all 0.4s; border: 1px solid rgba(0,0,0,0.05); }
 .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-color: var(--brand-yellow); }
 .product-img { width: 100%; height: 260px; object-fit: cover; transition: 0.5s; }
-
 .glass-form { background: var(--glass-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 50px; max-width: 600px; margin: 60px auto; }
 .contact-pill { padding: 8px 18px; border: 1px solid #eee; border-radius: 20px; text-decoration: none; font-size: 0.85em; color: #555; transition: 0.3s; background: #fff; }
 .contact-pill:hover { background: var(--brand-blue); color: #fff; }
 .input-field { width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 10px; font-family: inherit; box-sizing: border-box; }
-
 #exit-intent { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 40px; border-radius: 15px; box-shadow: 0 30px 100px rgba(0,0,0,0.3); z-index: 1000; display: none; text-align: center; opacity: 0; transition: 0.5s; }
 .clock-container { display: flex; gap: 40px; justify-content: center; }
