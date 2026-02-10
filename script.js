@@ -15,7 +15,7 @@ function updateClocks() {
 setInterval(updateClocks, 1000);
 updateClocks();
 
-// 2. 动态人数 (1246+ 模拟增长)
+// 2. 动态人数逻辑
 function initLightCount() {
     const baseCount = 1246;
     const projectStartTime = 1739150000000; 
@@ -39,13 +39,12 @@ function lightUp() {
     document.getElementById('light-trigger').onclick = null;
 }
 
-// 3. 询盘预填
+// 3. 询盘功能
 function openInquiry(productName) {
     document.getElementById('productInterest').value = "Inquiry: " + productName;
     document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
 }
 
-// 4. 表单提交 + WhatsApp 跳转
 async function submitForm(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
@@ -63,7 +62,6 @@ async function submitForm(e) {
             body: JSON.stringify({name, contact, product, message})
         });
         
-        // 自动合成 WhatsApp 消息
         const waMsg = `Hi Zhexi! I'm ${name}. I just sent an inquiry about ${product}. My needs: ${message}`;
         const waUrl = `https://wa.me/8619991689868?text=${encodeURIComponent(waMsg)}`;
         
@@ -78,7 +76,7 @@ async function submitForm(e) {
     }
 }
 
-// 5. 退出挽留
+// 4. 退出挽留
 document.addEventListener('mouseleave', (e) => {
     if (e.clientY < 0 && !sessionStorage.getItem('exitShown')) {
         const modal = document.getElementById('exit-intent');
