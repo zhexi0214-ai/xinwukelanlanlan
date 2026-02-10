@@ -1,4 +1,3 @@
-// 1. 语言切换：使用 innerHTML 确保故事里的 <p> 标签不丢失
 function changeLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
@@ -11,10 +10,9 @@ function changeLang(lang) {
     });
 }
 
-// 2. 修复灯泡和跳转
 function lightUp() {
     document.getElementById('light-bulb-svg').classList.add('lit');
-    document.getElementById('light-count-text').innerHTML = "Thank you.";
+    document.getElementById('light-count-text').innerHTML = "<strong>Lighted.</strong>";
 }
 
 function scrollToContact(prod) {
@@ -22,16 +20,14 @@ function scrollToContact(prod) {
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 }
 
-// 3. 表单提交：自动打开 WhatsApp，确保你能收到消息！
 function submitForm(e) {
     e.preventDefault();
     const name = document.getElementById('name').value;
-    const msg = document.getElementById('message').value;
-    const waUrl = `https://wa.me/8619991689868?text=Hi Zhexi, I am ${name}. ${msg}`;
+    const prod = document.getElementById('productInterest').value;
+    const waUrl = `https://wa.me/8619991689868?text=Hi Zhexi, I am ${name}. Inquiry about ${prod}`;
     window.open(waUrl, '_blank');
 }
 
-// 4. 时钟
 function updateClocks() {
     const now = new Date();
     const cn = new Date(now.getTime() + (480 + now.getTimezoneOffset()) * 60000);
@@ -39,6 +35,9 @@ function updateClocks() {
     const opt = { hour: '2-digit', minute: '2-digit', hour12: false };
     document.getElementById('clock-cn').innerText = cn.toLocaleTimeString('en-GB', opt);
     document.getElementById('clock-ua').innerText = ua.toLocaleTimeString('en-GB', opt);
+    const uaHour = ua.getHours();
+    document.getElementById('resting-icon').style.display = (uaHour >= 22 || uaHour <= 7) ? 'inline' : 'none';
 }
+
 setInterval(updateClocks, 1000);
 updateClocks();
