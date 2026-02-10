@@ -24,12 +24,7 @@
             data-cn="我们提供的不仅是发电机，更是光明的回归。">
             We provide not just generators, but the return of light.
         </h1>
-        <p data-en="Reliable backup for reconstruction and warmth." 
-           data-ua="Надійне джерело для відновлення та тепла." 
-           data-cn="为重建与温暖提供可靠的电力保障。">
-           Reliable backup for reconstruction and warmth.
-        </p>
-        <button class="btn-primary" onclick="scrollToContact('General')">
+        <button class="btn-primary" onclick="scrollToContact('Hero Button')">
             <span data-en="Find Your Light Today" data-ua="Знайдіть своє світло сьогодні" data-cn="开启光明之旅">Find Your Light Today</span>
         </button>
         
@@ -43,14 +38,24 @@
         </div>
     </header>
 
+    <section id="the-spark" class="dark-section">
+        <div class="container" style="max-width: 750px;">
+            <h2 data-en="THE SPARK" data-ua="ІСКРА" data-cn="火花">THE SPARK</h2>
+            <div class="story-text" data-en='<p>"Someone needs the world, while I need a corner."</p><p>It started with a late-night chat. Martha, my pen pal in Kyiv, sat by candlelight. "We need more than supplies," she said. "We need the certainty of light."</p><p>From a quiet corner in China, I ensure every watt brings warmth.</p>' 
+                 data-ua='<p>"Комусь потрібен світ, а мені — затишний куточок."</p><p>Все почалося з нічної розмови. Марта, моя подруга з Києва, сиділа при свічках. "Нам потрібна впевненість у світлі."</p>' 
+                 data-cn='<p>“有人需要世界，而我只需要一个角落。”</p><p>这一切始于一次深夜聊天。我在基辅的笔友玛莎坐在烛光下。“我们需要的不仅仅是物资，我们需要光明的确定性。”</p>'>
+                <p>"Someone needs the world, while I need a corner."</p>
+                <p>It started with a late-night chat. Martha, my pen pal in Kyiv, sat by candlelight. "We need more than supplies," she said. "We need the certainty of light."</p>
+            </div>
+        </div>
+    </section>
+
     <section id="products" class="container">
-        <h2 style="text-align: center; margin-bottom: 60px;" data-en="Selected for Reconstruction" data-ua="Відібрано для відновлення" data-cn="为重建精选">Selected for Reconstruction</h2>
         <div class="product-grid">
             <div class="product-card">
                 <img src="power.jpg" class="product-img">
                 <div class="product-info">
                     <h3 data-en="Powering Lives" data-ua="Живлення життя" data-cn="点亮生活">Powering Lives</h3>
-                    <p data-en="3500Wh Mobile Power Station." data-ua="Мобільна електростанція 3500 Вт·год." data-cn="3500Wh 移动储能电源">3500Wh Mobile Power Station.</p>
                     <button class="btn-primary" onclick="scrollToContact('Power Station')" data-en="Start a Conversation" data-ua="Почати розмову" data-cn="开始对话">Start a Conversation</button>
                 </div>
             </div>
@@ -58,7 +63,6 @@
                 <img src="cotton.jpg" class="product-img">
                 <div class="product-info">
                     <h3 data-en="Building Warmth" data-ua="Створення тепла" data-cn="构建温暖">Building Warmth</h3>
-                    <p data-en="Thermal insulation cotton." data-ua="Теплоізоляційна вата." data-cn="高效隔热保温棉">Thermal insulation cotton.</p>
                     <button class="btn-primary" onclick="scrollToContact('Insulation')" data-en="Start a Conversation" data-ua="Почати розмову" data-cn="开始对话">Start a Conversation</button>
                 </div>
             </div>
@@ -66,7 +70,6 @@
                 <img src="light.jpg" class="product-img">
                 <div class="product-info">
                     <h3 data-en="Solar Comfort" data-ua="Сонячний комфорт" data-cn="太阳能照明">Solar Comfort</h3>
-                    <p data-en="Smart sensor solar light." data-ua="Розумний сонячний ліхтар." data-cn="智能感应太阳能灯">Smart sensor solar light.</p>
                     <button class="btn-primary" onclick="scrollToContact('Solar Light')" data-en="Start a Conversation" data-ua="Почати розмову" data-cn="开始对话">Start a Conversation</button>
                 </div>
             </div>
@@ -75,10 +78,15 @@
 
     <section id="contact" class="glass-form">
         <h3 data-en="Start a Conversation" data-ua="Почати розмову" data-cn="开始对话">Start a Conversation</h3>
+        <div class="social-links">
+            <a href="https://wa.me/8619991689868" target="_blank" class="contact-pill">WhatsApp</a>
+            <a href="https://t.me/+8619991689868" target="_blank" class="contact-pill">Telegram</a>
+            <a href="mailto:zhexi0214@gmail.com" class="contact-pill">Email</a>
+        </div>
         <form id="inquiryForm" onsubmit="submitForm(event)">
             <input type="text" id="name" placeholder="Name" required class="input-field">
             <input type="text" id="contactInfo" placeholder="WhatsApp / Email" required class="input-field">
-            <input type="text" id="productInterest" value="General Inquiry" class="input-field" readonly style="background: #f9f9f9;">
+            <input type="text" id="productInterest" value="General Inquiry" class="input-field" readonly>
             <textarea id="message" placeholder="Message..." rows="4" class="input-field"></textarea>
             <button type="submit" class="btn-primary" style="width: 100%;" data-en="SEND TO ZHEXI" data-ua="НАДІСЛАТИ ЖЕКСП" data-cn="发送给哲熙">SEND TO ZHEXI</button>
         </form>
@@ -89,8 +97,7 @@
             <div class="clock-box"><span class="clock-label">BEIJING</span><span id="clock-cn" class="clock-time">--:--</span></div>
             <div class="clock-box"><span class="clock-label">KYIV</span><span id="clock-ua" class="clock-time">--:--</span><span id="resting-icon" style="display:none;">🌙</span></div>
         </div>
-        <p style="color: #aaa; font-size: 0.85em; margin-top: 30px;" data-en="© 2026 WUHUAHUHU. Crafted with care." data-ua="© 2026 WUHUAHUHU. Зроблено з турботою." data-cn="© 2026 WUHUAHUHU. 精心制作。">© 2026 WUHUAHUHU. Crafted with care.</p>
-        <p style="letter-spacing: 5px; color: #ccc; margin-top: 10px;" data-en="PEACE" data-ua="МИР" data-cn="和平">PEACE</p>
+        <p style="color: #aaa; font-size: 0.85em; margin-top: 20px;">© 2026 WUHUAHUHU. PEACE.</p>
     </footer>
 
     <script src="script.js"></script>
