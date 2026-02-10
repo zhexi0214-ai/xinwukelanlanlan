@@ -18,9 +18,9 @@
         </div>
     </nav>
 
-    <header class="container" style="text-align: center; padding: 100px 20px;">
-        <h1 style="font-size: 3.2em; margin-bottom: 15px; letter-spacing: -1px;">We provide not just generators, <br><span style="color: #0057B7;">but the return of light.</span></h1>
-        <p style="color: #666; max-width: 600px; margin: 0 auto 40px; font-size: 1.1em;">Ми не просто продаємо генератори — ми повертаємо світло.</p>
+    <header class="container">
+        <h1>We provide not just generators, <br><span style="color: #FFDD00;">but the return of light.</span></h1>
+        <p>Ми не просто продаємо генератори — ми повертаємо світло.</p>
         <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Find Your Light Today</button>
         
         <div style="margin-top: 50px; cursor: pointer;" onclick="lightUp()" id="light-trigger">
@@ -47,97 +47,78 @@
 
     <section id="products" class="container" style="padding: 100px 20px;">
         <h2 style="text-align: center; margin-bottom: 60px; font-weight: 600;">Selected for Reconstruction</h2>
-        
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
-            
             <div class="product-card">
                 <img src="power.jpg" class="product-img" alt="Power Station" onerror="this.src='https://images.unsplash.com/photo-1620714223084-874165487a31?auto=format&fit=crop&w=800&q=80'">
                 <div style="padding: 30px;">
                     <h3 style="color: #0057B7; margin-top: 0;">Powering Lives</h3>
-                    <p style="font-size: 0.95em; color: #555;">3500Wh / 5000W Mobile Power Station. Your reliable backup for medical devices and home appliances.</p>
+                    <p>3500Wh / 5000W Mobile Power Station. Reliable backup for home appliances.</p>
                     <button class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="openInquiry('3500Wh Power Station')">Start a Conversation</button>
                 </div>
             </div>
-
             <div class="product-card">
                 <img src="cotton.jpg" class="product-img" alt="Insulation" onerror="this.src='https://images.unsplash.com/photo-1629196914375-f7e48f477b6d?auto=format&fit=crop&w=800&q=80'">
                 <div style="padding: 30px;">
                     <h3 style="color: #0057B7; margin-top: 0;">Building Warmth</h3>
-                    <p style="font-size: 0.95em; color: #555;">Multi-layer thermal insulation. Effectively reduces heating costs and keeps the cold outside.</p>
+                    <p>Multi-layer thermal insulation. Effectively reduces heating costs.</p>
                     <button class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="openInquiry('Insulation Cotton')">Start a Conversation</button>
                 </div>
             </div>
-
             <div class="product-card">
                 <img src="light.jpg" class="product-img" alt="Solar Light" onerror="this.src='https://images.unsplash.com/photo-1542407515-58582d1c686e?auto=format&fit=crop&w=800&q=80'">
                 <div style="padding: 30px;">
                     <h3 style="color: #0057B7; margin-top: 0;">Daily Comfort</h3>
-                    <p style="font-size: 0.95em; color: #555;">Smart Solar Sensor Light. Zero electricity cost, IP65 waterproof, bringing safety to every corner.</p>
+                    <p>Smart Solar Sensor Light. Zero electricity cost, IP65 waterproof.</p>
                     <button class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="openInquiry('Solar Sensor Light')">Start a Conversation</button>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <section class="container" style="padding: 60px 20px; text-align: center; background: #fff; border-radius: 12px; margin-bottom: 80px;">
-        <p style="margin-bottom: 30px; color: #888; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">Logistics Transparency</p>
-        <div style="background: #f0f0f0; height: 4px; width: 100%; position: relative; border-radius: 10px;">
-            <div style="background: #0057B7; height: 4px; width: 65%; border-radius: 10px; transition: width 2s;"></div>
-            <div style="position: absolute; left: 0; top: -30px; font-size: 11px; color: #999;">CHINA</div>
-            <div style="position: absolute; left: 60%; top: -30px; font-size: 11px; font-weight: bold; color: #0057B7;">POLAND BORDER</div>
-            <div style="position: absolute; right: 0; top: -30px; font-size: 11px; color: #999;">UKRAINE</div>
+    <section class="container" style="padding: 80px 20px; text-align: center; background: #fff; border-radius: 20px; margin-bottom: 80px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+        <h4 style="margin-bottom: 40px; color: #888; font-size: 0.9em; letter-spacing: 2px;">THE SILK ROAD EXPRESS (中欧班列)</h4>
+        <div class="train-track-container">
+            <div class="track-line"></div>
+            <div class="train-dot"></div>
+            <div class="node node-cn"><span class="node-label">CHINA</span><div class="node-icon">🏮</div></div>
+            <div class="node node-kz"><span class="node-label">KAZAKHSTAN</span><div class="node-icon">🌍</div></div>
+            <div class="node node-pl"><span class="node-label">POLAND</span><div class="node-icon">🛂</div></div>
+            <div class="node node-ua"><span class="node-label">UKRAINE</span><div class="node-icon">🌻</div></div>
         </div>
-        <p style="font-size: 0.8em; color: #aaa; margin-top: 15px;">Reliable shipping via China-Europe Railway Express.</p>
+        <p style="font-size: 0.85em; color: #aaa; margin-top: 30px; font-style: italic;">Reliable link connecting hope across 10,000 kilometers.</p>
     </section>
 
     <section id="contact" class="glass-form">
         <h3 style="text-align: center; margin-bottom: 10px; font-size: 1.8em;">Start a Conversation</h3>
-        <p style="text-align: center; font-size: 0.9em; margin-bottom: 40px; color: #666;">
-            I personally review every inquiry from my corner. <br>
-            <span style="font-size: 0.85em; opacity: 0.8;">Average response: 4h. Peace.</span>
-        </p>
-        
+        <p style="text-align: center; font-size: 0.9em; margin-bottom: 30px; color: #666;">Every message reaches my quiet corner in China.</p>
+        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
+            <a href="https://wa.me/8619991689868" target="_blank" class="contact-pill">WhatsApp</a>
+            <a href="https://t.me/+8619991689868" target="_blank" class="contact-pill">Telegram</a>
+            <a href="mailto:zhexi0214@gmail.com" class="contact-pill">Email</a>
+        </div>
         <form id="inquiryForm" onsubmit="submitForm(event)">
-            <div style="margin-bottom: 20px;">
-                <input type="text" id="name" placeholder="Your Name" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: rgba(255,255,255,0.8);">
-            </div>
-            <div style="margin-bottom: 20px;">
-                <input type="text" id="contactInfo" placeholder="WhatsApp / Telegram / Email" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: rgba(255,255,255,0.8);">
-            </div>
-            <div style="margin-bottom: 20px;">
-                <input type="text" id="productInterest" value="General Inquiry" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #f0f0f0; color: #666;" readonly>
-            </div>
-            <div style="margin-bottom: 30px;">
-                <textarea id="message" placeholder="Tell me about your rebuilding needs..." rows="5" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: rgba(255,255,255,0.8);"></textarea>
-            </div>
-            
-            <button type="submit" class="btn-primary" style="width: 100%; padding: 18px; font-size: 1.1em;">Send to Zhexi</button>
+            <div style="margin-bottom: 15px;"><input type="text" id="name" placeholder="Your Name" required class="input-field"></div>
+            <div style="margin-bottom: 15px;"><input type="text" id="contactInfo" placeholder="WhatsApp / Email" required class="input-field"></div>
+            <div style="margin-bottom: 15px;"><input type="text" id="productInterest" value="General Inquiry" class="input-field" readonly style="background: #f0f0f0;"></div>
+            <div style="margin-bottom: 25px;"><textarea id="message" placeholder="Tell me about your needs..." rows="4" class="input-field"></textarea></div>
+            <button type="submit" class="btn-primary" style="width: 100%; height: 60px;">SEND TO ZHEXI</button>
         </form>
     </section>
 
     <footer style="padding: 80px 20px; text-align: center; background: var(--bg-warm-gray);">
-        <div class="clock-container" style="display: flex; justify-content: center; gap: 30px; margin-bottom: 40px;">
-            <div style="text-align: left;">
-                <span style="font-size: 0.7em; color: #999; display: block;">BEIJING</span>
-                <span id="clock-cn" style="font-weight: 600; font-size: 1.2em;">--:--</span>
-            </div>
-            <div style="text-align: left;">
-                <span style="font-size: 0.7em; color: #999; display: block;">KYIV</span>
-                <span id="clock-ua" style="font-weight: 600; font-size: 1.2em;">--:--</span>
-                <span id="resting-icon" style="display:none; margin-left:5px;">🌙</span>
-            </div>
+        <div class="clock-container">
+            <div><span style="font-size: 0.7em; color: #999; display: block;">BEIJING</span><span id="clock-cn" style="font-weight: 600; font-size: 1.2em;">--:--</span></div>
+            <div><span style="font-size: 0.7em; color: #999; display: block;">KYIV</span><span id="clock-ua" style="font-weight: 600; font-size: 1.2em;">--:--</span><span id="resting-icon" style="display:none; margin-left:5px;">🌙</span></div>
         </div>
-
-        <div style="font-size: 0.85em; color: #aaa;">
+        <div style="font-size: 0.85em; color: #aaa; margin-top: 40px;">
             <p>© 2026 WUHUAHUHU. Crafted with care from a quiet corner in China.</p>
-            <p style="letter-spacing: 4px; margin-top: 10px; color: #888;">PEACE</p>
+            <p style="letter-spacing: 4px; margin-top: 10px;">PEACE</p>
         </div>
     </footer>
 
     <div id="exit-intent">
-        <h3 style="color: #0057B7; margin-bottom: 10px;">May the light stay with you.</h3>
-        <p style="font-size: 0.9em; color: #666;">If you need anything for the rebuilding, <br>I’m always here in my corner.</p>
+        <h3>May the light stay with you.</h3>
+        <p>If you need anything for the rebuilding, I’m always here.</p>
     </div>
 
     <script src="script.js"></script>
