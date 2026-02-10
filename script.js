@@ -1,57 +1,44 @@
-// 1. 修复跳转功能：让“Start a Conversation”按钮能够精准定位
-function scrollToContact(productName) {
-    document.getElementById('productInterest').value = "Inquiry: " + productName;
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-}
-
-// 2. 语言切换逻辑：不破坏按钮原有的点击属性
+// 1. 语言切换：使用 innerHTML 确保故事里的 <p> 标签不丢失
 function changeLang(lang) {
-    // 切换按钮样式
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
         if(btn.innerText.toLowerCase() === lang) btn.classList.add('active');
     });
-
-    // 翻译所有带 data 属性的元素
     document.querySelectorAll('[data-en]').forEach(el => {
         const text = el.getAttribute(`data-${lang}`);
-        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-            el.placeholder = text;
-        } else {
-            el.innerText = text;
-        }
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') { el.placeholder = text; } 
+        else { el.innerHTML = text; }
     });
 }
 
-// 3. 修复灯泡功能
+// 2. 修复灯泡和跳转
 function lightUp() {
-    const bulb = document.getElementById('light-bulb-svg');
-    bulb.classList.add('lit');
-    const countEl = document.getElementById('light-count-text');
-    countEl.innerHTML = "<strong>Thank you for the light.</strong>";
+    document.getElementById('light-bulb-svg').classList.add('lit');
+    document.getElementById('light-count-text').innerHTML = "Thank you.";
 }
 
-// 4. 时钟功能
-function updateClocks() {
-    const now = new Date();
-    const cnTime = new Date(now.getTime() + (480 + now.getTimezoneOffset()) * 60000);
-    const uaTime = new Date(now.getTime() + (120 + now.getTimezoneOffset()) * 60000);
-    const options = { hour: '2-digit', minute: '2-digit', hour12: false };
-    document.getElementById('clock-cn').innerText = cnTime.toLocaleTimeString('en-GB', options);
-    document.getElementById('clock-ua').innerText = uaTime.toLocaleTimeString('en-GB', options);
-    
-    const uaHour = uaTime.getHours();
-    document.getElementById('resting-icon').style.display = (uaHour >= 22 || uaHour <= 7) ? 'inline' : 'none';
+function scrollToContact(prod) {
+    document.getElementById('productInterest').value = "Inquiry: " + prod;
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 }
 
-// 5. 提交表单
+// 3. 表单提交：自动打开 WhatsApp，确保你能收到消息！
 function submitForm(e) {
     e.preventDefault();
     const name = document.getElementById('name').value;
-    const info = document.getElementById('productInterest').value;
-    const waUrl = `https://wa.me/8619991689868?text=Hi Zhexi, I am ${name}. Interested in ${info}`;
+    const msg = document.getElementById('message').value;
+    const waUrl = `https://wa.me/8619991689868?text=Hi Zhexi, I am ${name}. ${msg}`;
     window.open(waUrl, '_blank');
 }
 
+// 4. 时钟
+function updateClocks() {
+    const now = new Date();
+    const cn = new Date(now.getTime() + (480 + now.getTimezoneOffset()) * 60000);
+    const ua = new Date(now.getTime() + (120 + now.getTimezoneOffset()) * 60000);
+    const opt = { hour: '2-digit', minute: '2-digit', hour12: false };
+    document.getElementById('clock-cn').innerText = cn.toLocaleTimeString('en-GB', opt);
+    document.getElementById('clock-ua').innerText = ua.toLocaleTimeString('en-GB', opt);
+}
 setInterval(updateClocks, 1000);
 updateClocks();
